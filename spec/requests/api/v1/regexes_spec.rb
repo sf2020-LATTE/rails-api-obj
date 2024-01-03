@@ -9,7 +9,7 @@ Rails.logger = Logger.new(STDOUT)
 
 RSpec.describe "Regexes", type: :request do
   it '全てのポストを取得する' do
-    # FactoryBot.create_list(:regex, 2)
+    FactoryBot.create_list(:regex, 2)
 
     get '/api/v1/regexes'
     json = JSON.parse(response.body)
@@ -18,6 +18,6 @@ RSpec.describe "Regexes", type: :request do
     expect(response.status).to eq(200)
 
     # 正しい数のデータが返されたか確認する。
-    expect(json['data'].length).to eq(0)
+    expect(json['data'].length).to eq(2)
   end
 end
